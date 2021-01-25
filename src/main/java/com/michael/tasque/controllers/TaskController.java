@@ -1,14 +1,12 @@
 package com.michael.tasque.controllers;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.michael.tasque.model.Task;
 import com.michael.tasque.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.text.html.parser.Entity;
-import java.util.ArrayList;
 import java.util.List;
 
 @RequestMapping("api/v1/tasks")
@@ -22,12 +20,23 @@ public class TaskController {
         this.taskService = taskService;
     }
 
+    // Create a task.
     @PostMapping
-    public ResponseEntity<Object> createTask( @RequestBody Task task ) {
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public Task createTask(@JsonProperty String title, @JsonProperty String body) {
+        Task task = this.taskService.createTask(title, body);
+        return task;
+    }
 
+    // Read all tasks.
+    @GetMapping
+    @ResponseStatus(code = HttpStatus.OK)
+    public List<Task> getTasks() {
+       return this.taskService.getTasks();
     }
-    @GetMapping(path = "/hello")
-    public String hello() {
-        return this.taskService.hello();
-    }
+
+//    @GetMapping(path = "/{id}")
+//    public Task getTask(int id) {
+//        return this.taskService.getTask();
+//    }
 }
