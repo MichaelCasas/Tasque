@@ -19,13 +19,8 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
+        </dependency> 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -47,6 +42,16 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>2.4.4</version>
+        </dependency> 
+        <dependency>
+            <groupId>com.github.eirslett</groupId>
+            <artifactId>frontend-maven-plugin</artifactId>
+            <version>1.11.2</version>
+        </dependency> 
     </dependencies>
 
     <build>
@@ -61,6 +66,49 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.github.eirslett</groupId> 
+                <artifactId>frontend-maven-plugin</artifactId>
+                <version>1.11.2</version>
+                <executions>
+
+                    <!-- Installation of Node and Yarn -->
+                    <execution>
+                        <id>node/yarn install</id>
+                        <goals>
+                            <goal>node-install</goal>
+                        </goals> 
+                        <phase>generate-resources</phase>
+                    </execution>
+
+                    <!-- clean node modules -->
+                    <execution>
+                        <id>install npm packages</id>
+                        <goals>
+                            <goal>yarn</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>clean</arguments>
+                        </configuration>
+                        <phase>clean</phase>
+                    </execution>
+
+                    <!-- install packages with yarn -->
+                    <execution>
+                        <id>install npm packages</id>
+                        <goals>
+                            <goal>yarn</goal>
+                        </goals>
+                        <phase>install</phase>
+                    </execution>
+
+
+                </executions>
+                <configuration>
+                    <nodeVersion>v14.16.0</nodeVersion>
+                    <yarnVersion>v1.22.5</yarnVersion>
                 </configuration>
             </plugin>
         </plugins>
