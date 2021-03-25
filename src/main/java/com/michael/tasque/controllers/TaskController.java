@@ -29,11 +29,11 @@ public class TaskController {
     }
 
     // Read all tasks.
-    @GetMapping
-    @ResponseStatus(code = HttpStatus.OK)
-    public List<Task> getTasks() {
-       return this.taskService.getTasks();
-    }
+//    @GetMapping
+//    @ResponseStatus(code = HttpStatus.OK)
+//    public List<Task> getTasks() {
+//       return this.taskService.getTasks();
+//    }
 
 //    @GetMapping(path = "/{id}")
 //    public Task getTask(int id) {
