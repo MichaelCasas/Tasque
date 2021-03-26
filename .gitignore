@@ -35,3 +35,6 @@ build/
 
 # ENV/Profiles
 src/main/resources/application-*.properties
+
+# Maven Node binary
+/src/main/client/node/
