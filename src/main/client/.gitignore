@@ -10,6 +10,9 @@
 # dependencies
 /node_modules
 
+# ENV
+/src/main/client/src/environments/*.env
+
 # profiling files
 chrome-profiler-events*.json
 speed-measure-plugin*.json
@@ -46,5 +49,5 @@ testem.log
 Thumbs.db
 
 # Maven Build-files
-/node
+/src/main/client/node
 

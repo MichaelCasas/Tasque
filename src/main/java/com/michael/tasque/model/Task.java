@@ -1,17 +1,17 @@
 package com.michael.tasque.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
+
+@Entity
+@Table(name = "tasks")
 @Getter
 @Setter
 @Data
-@Entity
-@Table(name = "tasks")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Task {
 
     @Id
@@ -19,16 +19,6 @@ public class Task {
     private int id;
     private String title;
     private String body;
-    private boolean completed; 
-
-    public Task(String title, String body) {
-        this.title = title;
-        this.body = body;
-        this.completed = false;
-    }
-
-    public Task() {
-        this.completed = false;
-    }
+    private boolean completed;
 
 }
