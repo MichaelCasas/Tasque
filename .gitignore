@@ -38,3 +38,6 @@ src/main/resources/application-*.properties
 
 # Maven Node binary
 /src/main/client/node/
+
+# Docker/DB
+db/db-data
