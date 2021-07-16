@@ -1,7 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Tasque" type="CompoundRunConfigurationType">
-    <toRun name="Angular Start" type="js.build_tools.npm" />
-    <toRun name="TasqueApplication" type="SpringBootApplicationConfigurationType" />
-    <method v="2" />
-  </configuration>
-</component>

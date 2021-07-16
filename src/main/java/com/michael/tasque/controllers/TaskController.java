@@ -1,8 +1,8 @@
 package com.michael.tasque.controllers;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.michael.tasque.entities.Task;
-import com.michael.tasque.entities.TaskRepository;
+import com.michael.tasque.models.Task;
+import com.michael.tasque.repositories.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
